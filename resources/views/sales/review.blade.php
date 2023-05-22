@@ -10,8 +10,6 @@
         <div class="client">
         <p>Nome do cliente: <span class="strong_span">{{ $client }}</span></p>
         <input type="hidden" name="client" value="{{ $client }}"  />
-        <input type="hidden" name="qtdy" value="{{ array_sum($qtds) }}"  />
-        <input type="hidden" name="price" value="{{ array_sum($prices) }}"  />
         </div>
         <table>
             <thead>
@@ -29,6 +27,8 @@
                     <td>R${{ $prices[$pr] }}</td>
                 </tr>
                 <input type="hidden" name="product[]" value="{{ $products[$pr] }}"  />
+                <input type="hidden" name="qtdy[]" value="{{ $qtds[$pr] }}"  />
+                <input type="hidden" name="price[]" value="{{ $prices[$pr] }}"  />
                 @endfor
             </tbody>
         </table>

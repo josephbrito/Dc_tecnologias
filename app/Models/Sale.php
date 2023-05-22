@@ -9,7 +9,9 @@ class Sale extends Model
 {
 
     protected $casts = [
-        "products" => "array"
+        "observations" => "array",
+        "dates" => "array",
+        "price_of_installments"=> "array"
     ];
 
     protected $guarded = [];

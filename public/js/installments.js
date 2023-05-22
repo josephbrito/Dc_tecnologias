@@ -3,9 +3,9 @@ const button_of_installments = document.getElementById("btn_installments");
 const result = document.getElementById("result");
 
 const div_installments = `<div class="installments_inputs_container">
-    <input type="date" id="inp_date" class="inp_date inp inp_installments" required />
-    <input type="number" id="inp_value" class="inp_value inp inp_installments" placeholder="R$" required />
-    <input type="text" id="inp_obs" class="inp_obs inp inp_installments" placeholder="Observações" />
+    <input type="date" name="date[]" id="inp_date" class="inp_date inp inp_installments" required />
+    <input type="number" name="price_installments[]" id="inp_value" class="inp_value inp inp_installments" placeholder="R$" required />
+    <input type="text" name="observations[]" id="inp_obs" class="inp_obs inp inp_installments" placeholder="Observações" />
 </div>`;
 
 button_of_installments.addEventListener("click", () => {

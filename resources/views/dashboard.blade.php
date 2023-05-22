@@ -13,13 +13,25 @@
     <div class="card_body">
         <p><span class="strong_span">Produtos vendidos:</span></p>
         <ul>
-            @foreach($sale->products as $product)
-            <li>{{ $product }}</li>
+            @foreach($products as $product)
+            @if($product->sales_id == $sale->id)
+            <li>{{ $product->product }} ({{$product->qty}}) - R${{ $product->price }}</li>
+            @endif
             @endforeach
         </ul>
-        <p><span class="strong_span">Total de quantidades vendidas:</span> {{ $sale->qtd }}</p>
-        <p><span class="strong_span">Numero de parcelas:</span> {{ $sale->installments }}</p>
-        <p><span class="strong_span">Renda faturada:</span> R${{ $sale->price }}</p>
+
+
+        <p><span class="strong_span">Total de quantidades vendidas:</span> {{ $sale->total_qty }}</p>
+        <p><span class="strong_span">Numero de parcelas:</span> 
+            @if($sale->installments == 1)
+                À Vista
+            @else
+            {{ $sale->installments }}
+
+            @endif
+        </p>
+        <p><span class="strong_span">Renda faturada:</span> R${{ $sale->total_price }}</p>
+
     </div>
     <div class="line"></div>
     <div class="card_footer">

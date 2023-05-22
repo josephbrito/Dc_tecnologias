@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sales', function (Blueprint $table) {
-            $table->id();
-            $table->string("client")->nullable();
-            $table->integer("installments");
-            $table->double("total_price");
-            $table->integer("total_qty");
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+           $table->foreignId("sales_id")->constrained();
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sales');
+        Schema::table('products', function (Blueprint $table) {
+            $table->foreignId("sales_id")->constrained()->onDelete("cascade");
+        });
     }
 };
